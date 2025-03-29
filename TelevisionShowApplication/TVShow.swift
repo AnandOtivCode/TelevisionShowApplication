@@ -20,8 +20,8 @@ struct TVShow:Codable, Identifiable{
 
     static var exampleTVShow = TVShow(trackId: 299552684,
         trackName:"Lost Verizon",
-        previewUrl: "https://video-ssl.itunes.apple.com/itunes-assets/Video211/v4/38/62/34/38623413-7ed2-ef77-8620-b702f41c32d3/mzvf_12497877310228884860.640x480.h264lc.U.p.m4v",
-        artworkUrl30: "https://is1-ssl.mzstatic.com/image/thumb/Video118/v4/d9/02/a7/d902a77a-2557-e2b2-bdbc-fc1a274990a1/mzl.hbjjaqku.lsr/30x30bb.jpg",
+        viewUrl: "https://video-ssl.itunes.apple.com/itunes-assets/Video211/v4/38/62/34/38623413-7ed2-ef77-8620-b702f41c32d3/mzvf_12497877310228884860.640x480.h264lc.U.p.m4v",
+        artworkUrl100: "https://is1-ssl.mzstatic.com/image/thumb/Video118/v4/d9/02/a7/d902a77a-2557-e2b2-bdbc-fc1a274990a1/mzl.hbjjaqku.lsr/30x30bb.jpg",
         country: "USA",
         contentAdvisoryRating: "TV-PG",
         primaryGenreName: "Comedy",
@@ -31,8 +31,8 @@ struct TVShow:Codable, Identifiable{
 
     var trackId:Int? = 0
     var trackName: String?
-    var previewUrl: String? = nil
-    var artworkUrl30: String?
+    var viewUrl: String? = nil
+    var artworkUrl100: String?
     var collectionName: String?
     var artistName: String?
     var country: String?
@@ -49,6 +49,8 @@ struct TVShow:Codable, Identifiable{
     
     
 }
+
+
 
 extension Bundle {
     func decode(_ file: String) -> [TVShow] {

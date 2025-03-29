@@ -26,6 +26,24 @@ struct DetailView: View {
             Divider()
             
             
+            
+            AsyncImage(url: URL(string: tvShow.artworkUrl30 ?? "No Image")){
+                result in
+                
+                if let image = result.image{
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                    
+                } else if result.error != nil{
+                    Image(systemName: "photo")
+                } else {
+                    ProgressView()
+                }
+            }
+            
+            
         }
     }
 }
