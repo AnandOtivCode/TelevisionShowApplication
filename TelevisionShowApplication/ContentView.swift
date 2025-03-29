@@ -10,14 +10,54 @@ import SwiftUI
 struct ContentView: View {
     
     
-    
+    @State private var sheetIsShowing = false
     @State private var searchText  = "The Simpsons"
     
     
     @State private var tvShows: [TVShow] = []
     
     var body: some View {
-        Text("Hello")
+        NavigationStack {
+            List{
+                ForEach(tvShows){
+                    tvshow in
+                    
+                    NavigationLink(destination: DetailView(tvShow: tvshow)){
+                        RowView(tvShow: tvshow)
+                    }
+                }
+            }
+            .navigationTitle("NPS Campground")
+            .onAppear(){
+                loadData(usingQuery:searchText)
+            }
+            .searchable(text: $searchText, prompt: "Enter two letter state code")
+            .keyboardType(.default)
+            .textInputAutocapitalization(.characters)
+            .onSubmit(of: .search, {
+                loadData(usingQuery: searchText)
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Info", systemImage: "info.circle"){
+                        sheetIsShowing.toggle()
+                    }
+                }
+            }
+            .sheet(isPresented: $sheetIsShowing) {
+                VStack{
+                    Text("NPS Data for Your Apps, Maps, and Websites")
+                        .font(.title2)
+                        .bold()
+                        .frame(maxWidth: .infinity , alignment: .leading)
+                    Divider()
+                    Text("The National Park Service API (application programming interface) and developer resources are designed to provide authoritative NPS data and content for internal and external developers creating apps, maps, and websites. You'll find photos and essential information about NPS sites including visitor centers, campgrounds, events, news, alerts, and more, as well as detailed articles about NPS natural and cultural features and important people and places.")
+                        .italic()
+                }.padding()
+            }
+        }
+        
+        
     }
     
     
