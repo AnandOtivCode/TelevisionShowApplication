@@ -27,7 +27,7 @@ struct DetailView: View {
             
             
             
-            AsyncImage(url: URL(string: tvShow.artworkUrl30 ?? "No Image")){
+            AsyncImage(url: URL(string: tvShow.artworkUrl100 ?? "No Image")){
                 result in
                 
                 if let image = result.image{
