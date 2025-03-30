@@ -33,8 +33,9 @@ struct DetailView: View {
                 if let image = result.image{
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                        .frame(width: 350, height:350)
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                     
                 } else if result.error != nil{
                     Image(systemName: "photo")
@@ -42,6 +43,18 @@ struct DetailView: View {
                     ProgressView()
                 }
             }
+            
+            
+            //Check if Content Advisory Rating is explicit or not
+            
+            if tvShow.contentAdvisoryRating == "TV-MA" {
+                Image(systemName: "exclamationmark.triangle.fill").resizable().frame(width:50,height:50).foregroundColor(.red)
+                    
+            } else {
+                Image(systemName: "figure.and.child.holdinghands").resizable().frame(width:50,height:50)
+                    
+            }
+
             
             
         }
