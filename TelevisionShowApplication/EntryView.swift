@@ -1,37 +1,29 @@
 //
-//  WebView.swift
-//  TelevisionShowApplication
+//  EntryView.swift
+//  MovieDetailsApplication
 //
-//  Created by Anand Otiv on 2025-03-29.
-//
-
-
-//
-//  WebView.swift
-//  CampingApp
-//
-//  Created by Christopher Takaki on 2025-03-24.
+//  Created by Anand Otiv on 2025-03-22.
 //
 
-import WebKit
 import SwiftUI
 
-struct WebView: UIViewRepresentable{
-    let webText: String?
-    func makeUIView(context: Context) -> WKWebView {
-        WKWebView()
-    }
-    
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        guard let text = webText, let url = URL(string: text) else {
-            return
+struct EntryView: View {
+   
+        var body: some View {
+            
+            //Add tabs to switch between different views
+            TabView{
+                Tab("Main Page", systemImage: "movieclapper.fill"){
+                    MainView()
+                }
+                Tab("TV-Show Search", systemImage: "magnifyingglass"){
+                    ContentView()
+                }
+            }
         }
-        
-        let urlRequest = URLRequest(url: url)
-        uiView.load(urlRequest)
     }
-    
-    typealias UIViewType = WKWebView
-    
-    
+
+
+#Preview {
+    EntryView()
 }

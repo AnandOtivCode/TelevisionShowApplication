@@ -4,14 +4,7 @@
 //
 //  Created by Anand Otiv on 2025-03-29.
 //
-
-
-//
-//  WebView.swift
-//  CampingApp
-//
-//  Created by Christopher Takaki on 2025-03-24.
-//
+// Used for opening web pages
 
 import WebKit
 import SwiftUI

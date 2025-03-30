@@ -16,13 +16,13 @@ struct TVShowList: Codable {
 struct TVShow:Codable, Identifiable{
 
 
-
+//Stores Example Tv Show
 
     static var exampleTVShow = TVShow(trackId: 299552684,
         trackName:"Lost Verizon",
         viewUrl: "https://video-ssl.itunes.apple.com/itunes-assets/Video211/v4/38/62/34/38623413-7ed2-ef77-8620-b702f41c32d3/mzvf_12497877310228884860.640x480.h264lc.U.p.m4v",
         artworkUrl100: "https://is1-ssl.mzstatic.com/image/thumb/Video118/v4/d9/02/a7/d902a77a-2557-e2b2-bdbc-fc1a274990a1/mzl.hbjjaqku.lsr/100x100bb.jpg",
-                                      
+        collectionName:"The Simpsons, Season 20",
     trackViewUrl:"https://itunes.apple.com/us/tv-season/treehouse-of-horror-xix/id299364989?i=299758136&uo=4",
         country: "USA",
         contentAdvisoryRating: "TV-PG",
@@ -36,6 +36,7 @@ struct TVShow:Codable, Identifiable{
 
     var trackId:Int? = 0
     var trackName: String?
+    //var artistName:String? = nil
     var viewUrl: String? = nil
     var artworkUrl100: String?
     var collectionName: String?

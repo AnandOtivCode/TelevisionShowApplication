@@ -5,6 +5,13 @@
 //  Created by Anand Otiv on 2025-03-28.
 //
 
+// Constructs individual row for content view
+//Contains:
+// Image of Episode
+// Season and or Episode Number
+// Episode Name
+//Content Advisory Rating
+//Episode Short Description
 
 
 import SwiftUI
@@ -35,20 +42,21 @@ struct RowView: View {
                 Image(systemName: "movieclapper.fill")
                     .font(.title)
                 VStack(alignment: .leading){
-                    //                Text(movie.trackId)
-                    //                    .font(.headline)
-                    Text(tvShow.trackName ?? "No Movie Name".uppercased())
+
+                    Text(tvShow.collectionName ?? "No TVShow Name".uppercased())
                         .font(.title2)
                         .fontWeight(.heavy)
-                        .foregroundColor(Color.red)
-                    Text(tvShow.shortDescription ?? "")
-                    Text("Genre Name: \(tvShow.primaryGenreName ?? "No Primary Genre Name")")
+                    Text(tvShow.trackName ?? "No TVShow Name".uppercased())
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                      .foregroundColor(Color.red)
+                    Text("Genre: \(tvShow.primaryGenreName ?? "No Primary Genre Name")")
                     Text("Content Advisory Rating: \(tvShow.contentAdvisoryRating ?? "No Content Advisory Rating")")
                     
                     //If no movie short description don't show anything
                     if tvShow.shortDescription != nil {
                         
-                        Text("Movie Description : \(tvShow.shortDescription ?? "")").font(.footnote).fontWeight(.heavy).multilineTextAlignment(.leading)
+                        Text("Episode Description : \(tvShow.shortDescription ?? "")").font(.footnote).fontWeight(.heavy).multilineTextAlignment(.leading)
                         
                     }
                     
