@@ -54,6 +54,11 @@ struct DetailView: View {
                 Image(systemName: "figure.and.child.holdinghands").resizable().frame(width:50,height:50)
                     
             }
+            
+            
+            NavigationLink(destination: WebView(webText: tvShow.trackViewUrl)) {
+                Label("Check out on itunes store", systemImage: "link").foregroundColor(Color.blue).fontWeight(.bold)
+            }
 
             
             
