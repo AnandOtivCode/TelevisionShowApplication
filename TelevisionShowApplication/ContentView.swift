@@ -27,7 +27,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("NPS Campground")
+            .navigationTitle("TV Shows")
             .onAppear(){
                 loadData(usingQuery:searchText)
             }
