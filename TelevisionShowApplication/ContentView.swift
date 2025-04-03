@@ -12,32 +12,42 @@ struct ContentView: View {
     
     @State private var searchText  = "The Simpsons"
     
+    let gridColumns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
+    
+    
     
     @State private var tvShows: [TVShow] = []
     
     var body: some View {
         NavigationStack {
-            List{
-                ForEach(tvShows){
-                    tvshow in
-                    
-                    NavigationLink(destination: DetailView(tvShow: tvshow)){
-                        RowView(tvShow: tvshow)
+            ScrollView{
+                LazyVGrid(columns: gridColumns){
+                    ForEach(tvShows){
+                        tvshow in
+                        
+                        NavigationLink(destination: DetailView(tvShow: tvshow)){
+                            RowView(tvShow: tvshow)
+                        }
                     }
                 }
+                .navigationTitle("TV Shows")
+                .onAppear(){
+                    loadData(usingQuery:searchText)
+                }
+                .searchable(text: $searchText, prompt: "Enter TV Show")
+                .keyboardType(.default)
+                .textInputAutocapitalization(.characters)
+                .onSubmit(of: .search, {
+                    loadData(usingQuery: searchText)
+                })
             }
-            .navigationTitle("TV Shows")
-            .onAppear(){
-                loadData(usingQuery:searchText)
-            }
-            .searchable(text: $searchText, prompt: "Enter TV Show")
-            .keyboardType(.default)
-            .textInputAutocapitalization(.characters)
-            .onSubmit(of: .search, {
-                loadData(usingQuery: searchText)
-            })
         }
     }
+    
     
     
     func loadData(usingQuery query: String){
@@ -77,6 +87,7 @@ struct ContentView: View {
         
     }
 }
+
     
     #Preview {
         ContentView()

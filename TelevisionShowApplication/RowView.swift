@@ -29,7 +29,7 @@ struct RowView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height:200)
+                        .frame(width: 100, height:100)
                         .clipShape(RoundedRectangle(cornerRadius: 25))
                     
                 } else if result.error != nil{
@@ -38,37 +38,42 @@ struct RowView: View {
                     ProgressView()
                 }
             }
+            ZStack{
+                
             HStack{
                 Image(systemName: "movieclapper.fill")
                     .font(.title)
                 VStack(alignment: .leading){
-
+                    
                     Text(tvShow.collectionName ?? "No TVShow Name".uppercased())
                         .font(.title2)
                         .fontWeight(.heavy)
                     Text(tvShow.trackName ?? "No TVShow Name".uppercased())
                         .font(.title2)
                         .fontWeight(.heavy)
-                      .foregroundColor(Color.red)
-                    Text("Genre: \(tvShow.primaryGenreName ?? "No Primary Genre Name")")
-                    Text("Content Advisory Rating: \(tvShow.contentAdvisoryRating ?? "No Content Advisory Rating")")
-                    
+                        .foregroundColor(Color.red)
+                    //                    Text("Genre: \(tvShow.primaryGenreName ?? "No Primary Genre Name")")
+                    //                    Text("Content Advisory Rating: \(tvShow.contentAdvisoryRating ?? "No Content Advisory Rating")")
+                    //
                     //If no movie short description don't show anything
-                    if tvShow.shortDescription != nil {
-                        
-                        Text("Episode Description : \(tvShow.shortDescription ?? "")").font(.footnote).fontWeight(.heavy).multilineTextAlignment(.leading)
-                        
-                    }
                     
-                
                     
-
+                    //                    if tvShow.shortDescription != nil {
+                    //
+                    //                        Text("Episode Description : \(tvShow.shortDescription ?? "")").font(.footnote).fontWeight(.heavy).multilineTextAlignment(.leading)
+                    //
+                    //                    }
+                    
+                    
+                    
+                    
                     
                     
                 }
                 .padding(.horizontal)
             }
         }
+        }.padding().background(Color.gray.opacity(0.6)).clipShape(RoundedRectangle(cornerRadius: 20))  .frame(width: 200, height:250).aspectRatio(contentMode: .fit)
     }
 }
 
