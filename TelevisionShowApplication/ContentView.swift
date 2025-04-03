@@ -45,7 +45,7 @@ struct ContentView: View {
         Task{
             //urlQueryAllowed?
             guard let cleanText = query.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else { return }
-            var urlString = "https://itunes.apple.com/search?term=\(cleanText)&media=tvShow"
+            let urlString = "https://itunes.apple.com/search?term=\(cleanText)&media=tvShow"
             
             
             //            urlString = urlString.appending(API_KEY_GOES_HERE)
