@@ -57,6 +57,12 @@ class TVStore: ObservableObject {
         saveFavourites()
     }
     
+    func removeFromFavourites(tvshow: TVShow){
+        guard let index = favouriteTVShows.firstIndex(of: tvshow) else { return }
+        favouriteTVShows.remove(at: index)
+        saveFavourites()
+    }
+    
     
     func retrieveFavourites(){
         let savedLocation = documentDirectory.appendingPathComponent("favourites.json")
