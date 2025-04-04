@@ -1,29 +1,29 @@
+////
+////  EntryView.swift
+////  MovieDetailsApplication
+////
+////  Created by Anand Otiv on 2025-03-22.
+////
 //
-//  EntryView.swift
-//  MovieDetailsApplication
+//import SwiftUI
 //
-//  Created by Anand Otiv on 2025-03-22.
+//struct EntryView: View {
+//   
+//        var body: some View {
+//            
+//            //Add tabs to switch between different views
+//            TabView{
+//                Tab("Main Page", systemImage: "movieclapper.fill"){
+//                    MainView()
+//                }
+//                Tab("TV-Show Search", systemImage: "magnifyingglass"){
+//                    ContentView()
+//                }
+//            }
+//        }
+//    }
 //
-
-import SwiftUI
-
-struct EntryView: View {
-   
-        var body: some View {
-            
-            //Add tabs to switch between different views
-            TabView{
-                Tab("Main Page", systemImage: "movieclapper.fill"){
-                    MainView()
-                }
-                Tab("TV-Show Search", systemImage: "magnifyingglass"){
-                    ContentView()
-                }
-            }
-        }
-    }
-
-
-#Preview {
-    EntryView()
-}
+//
+//#Preview {
+//    EntryView()
+//}

@@ -14,6 +14,10 @@
 import SwiftUI
 
 struct DetailView: View {
+    @ObservedObject var tvstore: TVStore
+    
+
+    //MARK: - Properties
     var tvShow: TVShow
     var body: some View {
         VStack{
@@ -75,12 +79,13 @@ struct DetailView: View {
             
             
         }
+        //Add to wish list
     }
 }
     
     
         #Preview {
-            DetailView(tvShow: TVShow.exampleTVShow)
+            DetailView(tvstore: TVStore.exampleTVShowStore, tvShow: TVShow.exampleTVShow)
         }
 
     

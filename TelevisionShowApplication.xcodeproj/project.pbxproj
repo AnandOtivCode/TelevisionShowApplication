@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		9ABCCB252D979ED5005D280A /* TelevisionShowApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TelevisionShowApplication.app; path = "/Users/anandotiv/Desktop/IOS Projects/TelevisionShowApplication/build/Debug-iphoneos/TelevisionShowApplication.app"; sourceTree = "<absolute>"; };
+		9ABCCB972D9F1DFF005D280A /* TelevisionShowApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelevisionShowApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +33,7 @@
 			isa = PBXGroup;
 			children = (
 				9ABCCB272D979ED5005D280A /* TelevisionShowApplication */,
+				9ABCCB972D9F1DFF005D280A /* TelevisionShowApplication.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +59,7 @@
 			packageProductDependencies = (
 			);
 			productName = TelevisionShowApplication;
-			productReference = 9ABCCB252D979ED5005D280A /* TelevisionShowApplication.app */;
+			productReference = 9ABCCB972D9F1DFF005D280A /* TelevisionShowApplication.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

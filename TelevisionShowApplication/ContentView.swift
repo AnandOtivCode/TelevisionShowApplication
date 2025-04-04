@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var tvstore: TVStore
+
     
     
     @State private var searchText  = "The Simpsons"
@@ -29,7 +31,7 @@ struct ContentView: View {
                     ForEach(tvShows){
                         tvshow in
                         
-                        NavigationLink(destination: DetailView(tvShow: tvshow)){
+                        NavigationLink(destination: DetailView(tvstore:tvstore,tvShow:tvshow)){
                             RowView(tvShow: tvshow)
                         }
                     }
@@ -90,7 +92,7 @@ struct ContentView: View {
 
     
     #Preview {
-        ContentView()
+        ContentView(tvstore: TVStore.exampleTVShowStore)
     }
     
 
