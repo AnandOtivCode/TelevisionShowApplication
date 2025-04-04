@@ -80,7 +80,7 @@ struct DetailView: View {
                     Label("Check out on itunes store", systemImage: "link").foregroundColor(Color.blue).fontWeight(.bold)
                 }                //Adds heart and toggles between full heart and empty heart for showing whether a tvshow is favourited
             }.toolbar{
-                ToolbarItem{
+                ToolbarItem(placement: .navigationBarTrailing){
                     if !tvstore.isInCollection(tvShow:tvShow){
                         Button("Add", systemImage: "heart"){
                             isAlertShowing.toggle()
@@ -93,22 +93,24 @@ struct DetailView: View {
                     
                 }
             }
-                .alert("Change Confirmation", isPresented: $isAlertShowing) {
-                    
-                    if !tvstore.isInCollection(tvShow:tvShow){
-                        tvstore.addToFavourites(tvShow: tvShow)
-                    }
-                    else {
-                        Button("Remove", role: .destructive){
-                            tvstore.removeFromFavourites(tvshow:tvShow)
-                        }
-                    }
-                    Button("Cancel", role: .cancel){
-                        
-                    }
-                } message: {
-                    Text("Do you want to make these changes for \(tvShow.trackName)?")
-                }
+        
+            //FIX ERROR HERE
+//                .alert("Change Confirmation", isPresented: $isAlertShowing) {
+//                    
+//                    if !tvstore.isInCollection(tvShow:tvShow){
+//                        tvstore.addToFavourites(tvShow: tvShow)
+//                    }
+//                    else {
+//                        Button("Remove", role: .destructive){
+//                            tvstore.removeFromFavourites(tvshow:tvShow)
+//                        }
+//                    }
+//                    Button("Cancel", role: .cancel){
+//                        
+//                    }
+//                } message: {
+//                    Text("Do you want to make these changes for \(tvShow.trackName)?")
+//                }
                     
                     
                     
