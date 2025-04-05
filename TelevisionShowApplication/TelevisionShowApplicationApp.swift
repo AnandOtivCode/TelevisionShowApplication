@@ -17,12 +17,12 @@ struct TelevisionShowApplicationApp: App {
                 Tab("TVShow search", systemImage: "magnifyingglass"){
                     ContentView(tvstore:tvstore)
                 }
-                //                Tab("Favourite TVShows", systemImage: "tent"){
-                //                    FavouriteCampsitesView(campstore: campstore)
-                //                }.badge(campstore.favouriteCampsites.count)
-                //
-                //            }.onAppear(){
-                //                campstore.retrieveFavourites()
+                                Tab("Favourite TVShows", systemImage: "list.and.film"){
+                                    WatchListView(tvstore: tvstore)
+                                }.badge(tvstore.favouriteTVShows.count)
+                
+                            }.onAppear(){
+                                tvstore.retrieveFavourites()
                 
                 
             }
