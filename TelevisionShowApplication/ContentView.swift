@@ -22,7 +22,7 @@ struct ContentView: View {
     
     
     
-    @State private var tvShows: [TVShow] = []
+    @State private var tvShows:  [TVShow] = []
     
     var body: some View {
         NavigationStack {

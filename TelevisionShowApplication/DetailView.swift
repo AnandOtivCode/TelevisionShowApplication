@@ -29,6 +29,7 @@ struct DetailView: View {
                     .font(.title2)
                     .bold()
                     .frame(maxWidth: .infinity)
+                
                 Text(tvShow.collectionName ?? "No Collection Name")
                 Divider()
                     .fontWeight(.light)
@@ -94,23 +95,25 @@ struct DetailView: View {
                 }
             }
         
-            //FIX ERROR HERE
-//                .alert("Change Confirmation", isPresented: $isAlertShowing) {
-//                    
-//                    if !tvstore.isInCollection(tvShow:tvShow){
-//                        tvstore.addToFavourites(tvShow: tvShow)
-//                    }
-//                    else {
-//                        Button("Remove", role: .destructive){
-//                            tvstore.removeFromFavourites(tvshow:tvShow)
-//                        }
-//                    }
-//                    Button("Cancel", role: .cancel){
-//                        
-//                    }
-//                } message: {
-//                    Text("Do you want to make these changes for \(tvShow.trackName)?")
-//                }
+          //  FIX ERROR HERE
+                .alert("Change Confirmation", isPresented: $isAlertShowing) {
+                    
+                    if !tvstore.isInCollection(tvShow:tvShow){
+                        Button("Add", systemImage: "heart"){
+                            tvstore.addToFavourites(tvShow: tvShow)
+                        }
+                    }
+                    else {
+                        Button("Remove", role: .destructive){
+                            tvstore.removeFromFavourites(tvshow:tvShow)
+                        }
+                    }
+                    Button("Cancel", role: .cancel){
+                        
+                    }
+                } message: {
+                    Text("Do you want to make these changes for \(tvShow.trackName ?? "" )?")
+                }
                     
                     
                     
