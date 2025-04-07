@@ -37,8 +37,10 @@ struct DetailView: View {
                     .font(.title2)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 10)
-                Text("\(tvShow.longDescription ?? "No Long Description")")
-                    .frame(maxWidth: .some(360))
+                ScrollView{
+                    Text("\(tvShow.longDescription ?? "No Long Description")")
+                        .frame(maxWidth: .some(360))
+                }
                 Divider()
                 
                 AsyncImage(url: URL(string: tvShow.artworkUrl100 ?? "No Image")){
@@ -47,7 +49,7 @@ struct DetailView: View {
                     if let image = result.image{
                         image
                             .resizable()
-                            .frame(width: 350, height:350)
+                            .frame(width: 250, height:250)
                             .aspectRatio(contentMode: .fit)
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                         
@@ -81,6 +83,8 @@ struct DetailView: View {
                     Label("Check out on itunes store", systemImage: "link").foregroundColor(Color.blue).fontWeight(.bold)
                 }                //Adds heart and toggles between full heart and empty heart for showing whether a tvshow is favourited
             }.toolbar{
+                
+                //Heart is filled or not filled depending on whether item is or is not in watchlist
                 ToolbarItem(placement: .navigationBarTrailing){
                     if !tvstore.isInCollection(tvShow:tvShow){
                         Button("Add", systemImage: "heart"){
@@ -95,7 +99,7 @@ struct DetailView: View {
                 }
             }
         
-          //  FIX ERROR HERE
+          //  Dialouge for user to add, or not add item to watchlist
                 .alert("Change Confirmation", isPresented: $isAlertShowing) {
                     
                     if !tvstore.isInCollection(tvShow:tvShow){
@@ -123,8 +127,6 @@ struct DetailView: View {
         }
         
     
-//test for commit
-        
     
         #Preview {
             DetailView(tvstore: TVStore.exampleTVShowStore, tvShow: TVShow.exampleTVShow)

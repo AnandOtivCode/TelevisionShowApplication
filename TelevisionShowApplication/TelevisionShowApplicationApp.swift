@@ -14,7 +14,7 @@ struct TelevisionShowApplicationApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                Tab("TVShow search", systemImage: "magnifyingglass"){
+                Tab("TVShow Search", systemImage: "magnifyingglass"){
                     ContentView(tvstore:tvstore)
                 }
                                 Tab("Favourite TVShows", systemImage: "list.and.film"){

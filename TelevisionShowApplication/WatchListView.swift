@@ -15,14 +15,20 @@ struct WatchListView: View {
     
     //MARK: - Body Property
     var body: some View {
-        Text("WatchList \(tvstore.favouriteTVShows.count) show")
-        //TODO: - LOAD FAVOURITES
+        //For grammar -> 1 show , 0 shows/2 or more shows
+        if tvstore.favouriteTVShows.count == 1 {
+            Text("WatchList \(tvstore.favouriteTVShows.count) show")
+        }
+        else{
+            Text("WatchList \(tvstore.favouriteTVShows.count) shows")
+        }
+        
         
         NavigationStack{
             List{
                 ForEach(tvstore.favouriteTVShows, id:\.id){
                     tvshow in
-                    RowView(tvShow:tvshow)
+                    WatchListRowView(tvShow:tvshow)
                 }.onDelete(perform: { indexSet in
                     tvstore.removeFromFavourites(usingIndexSet: indexSet)
                 })

@@ -5,6 +5,8 @@
 //  Created by Anand Otiv on 2025-03-28.
 //
 
+// Connect all the content for TVShows page
+
 import SwiftUI
 
 struct ContentView: View {
@@ -13,10 +15,12 @@ struct ContentView: View {
     
     
     @State private var searchText  = "The Simpsons"
-    
+
+    //Sets the layout for the Grid
     let gridColumns = [
         GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible()),
+        
     ]
     
     
@@ -25,12 +29,14 @@ struct ContentView: View {
     @State private var tvShows:  [TVShow] = []
     
     var body: some View {
+        
         NavigationStack {
             ScrollView{
+                //Organizes the gridlayout
                 LazyVGrid(columns: gridColumns){
                     ForEach(tvShows){
                         tvshow in
-                        
+                        //Link to the detail view
                         NavigationLink(destination: DetailView(tvstore:tvstore,tvShow:tvshow)){
                             RowView(tvShow: tvshow)
                         }
@@ -51,7 +57,7 @@ struct ContentView: View {
     }
     
     
-    
+    //Gets json data from itunes
     func loadData(usingQuery query: String){
         
         Task{
